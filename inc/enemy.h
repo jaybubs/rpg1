@@ -6,8 +6,8 @@
 class Enemy {
   public:
     Enemy () {
-    Die dice(30,50);
-      hp = dice.roll();
+    Die hpdice(30,50);
+      hp = hpdice.roll();
     };
 
     int atk;
