@@ -1,0 +1,21 @@
+game loop:
+values
+event
+draw
+
+rn it's pl/en atk, can be considered an encounter
+
+
+better: press key to run sim once, 
+
+
+while running:
+
+generate player
+
+encounter:
+generate enemy
+fight to death
+if player not dead
+go to encounter
+else die

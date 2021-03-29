@@ -1,0 +1,12 @@
+cerate histogram with just strings
+
+
+#instantiate a map object for the histogram
+
+  std::map<int, int> histogram{};
+#after doing something, add the value to the map
+    ++histogram[value];
+#once all the values are done, construct a string with the constrcutor taking in a value and a symbol to be repeated, if there's a metric fuckton of values p.second can be rescaled by dividing by some huge number and shit
+      for (auto p : histogram) {
+        std::cout << std::setw(2) << p.first << ' ' <<std::string(p.second,'*') << '\n';
+      }
