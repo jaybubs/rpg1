@@ -11,6 +11,7 @@ set(SOURCES
 	src/die.cpp
 	src/action.cpp
 	src/player.cpp
+	src/enemy.cpp
 	./game.cpp
 	)
 

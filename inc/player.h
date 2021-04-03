@@ -1,5 +1,8 @@
 #pragma once
 
+class Action;
+class Enemy;
+
 class Player
 {
   public:
@@ -12,4 +15,6 @@ class Player
 
     /* unlike revive above, this function should strictly _add_ to the hp, not reset it */
     void heal(int h);
+    /* get action from actions */
+    void pattack(Enemy& e);
 };

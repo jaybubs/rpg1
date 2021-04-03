@@ -1,3 +1,0 @@
-/home/jj/dev/cpp/rpg1/CMakeFiles/rebuild_cache.dir
-/home/jj/dev/cpp/rpg1/CMakeFiles/edit_cache.dir
-/home/jj/dev/cpp/rpg1/CMakeFiles/game.dir

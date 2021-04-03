@@ -16,11 +16,11 @@ int main()
   int i;
   int counter = 0;
 
-  Action a;
+  int j;
+  /* Action a; */
 
   Player cock;
 
-  Die dice(1,10);
 
 
 
@@ -33,8 +33,8 @@ int main()
       quit=true;
       return i;
     } else if (i == 1) {
-    cock.revive(200);
-    cock.dead = false;
+      cock.revive(200);
+      cock.dead = false;
     } else {
       std::cout << "the fuck did you press that for? bye" << std::endl;
       quit=true;
@@ -46,7 +46,19 @@ int main()
       /* fight while enemy is alive */
       while (enemy.hp > 0) {
 
-        a.fight(cock, enemy, dice);
+        std::cout << "1. attack 2. block" << std::endl;
+        std::cin >> j;
+        switch (j) {
+          case 1:
+            cock.pattack(enemy);
+            enemy.eattack(cock);
+              break;
+          /* case 2: */
+          /*   a.block(cock,enemy,dice); */
+            /* break; */
+          /* default: */
+            /* a.fight(cock, enemy, dice); */
+        }
 
 
         /* check player not dead */
@@ -59,10 +71,10 @@ int main()
         else if (enemy.hp <= 0) {
           counter++;
           std::cout << "enema number " << counter << std::endl;
-        if (counter%4==0) {
-          cock.heal(20);
-          std::cout << "bonus 20 hp for not dying yet" << std::endl;
-        }
+          if (counter%4==0) {
+            cock.heal(20);
+            std::cout << "bonus 20 hp for not dying yet" << std::endl;
+          }
 
         }
       }
