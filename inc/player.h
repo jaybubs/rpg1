@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 class Action;
 class Enemy;
@@ -6,6 +7,7 @@ class Enemy;
 class Player
 {
   public:
+    ~Player(){ std::cout << "destroyed player" << std::endl;};
     int atk;
     int hp;
     bool dead = true;
