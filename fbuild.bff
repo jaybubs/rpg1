@@ -1,0 +1,22 @@
+Compiler( "g++" ) {
+	.Executable = "/usr/bin/g++"
+}
+
+ObjectList( "objects" ) {
+	.Compiler = "g++"
+	.CompilerOptions = "-c %1 -o %2 -Wall -Wextra -Werror -I./inc"
+	.CompilerInputPath = "."
+	.CompilerOutputPath = "./obj/"
+
+}
+
+Executable( "app" ) {
+	.Linker = "/usr/bin/g++"
+	.LinkerOptions = "%1 -o %2"
+	.LinkerOutput = "game"
+	.Libraries = "objects"
+}
+
+Alias ( "all" ) {
+	.Targets = { "app" }
+}
