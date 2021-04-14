@@ -1,0 +1,44 @@
+{
+	.ProjectName = 'game'
+	.ProjectPath = 'game'
+
+
+	ForEach(.Config in .Configs_Linux_GCC) {
+		Using(.Config)
+		.OutputBase + '/$PlatformInfo$-$ArchInfo$-$CompilerInfo$-$Config$'
+		.CompilerOptions + .CompilerOptionsC
+		ObjectList('$ProjectName$-Lib-$PlatformInfo$-$ArchInfo$-$CompilerInfo$-$Config$') {
+			.CompilerInputPath = '.'
+			.CompilerOutputPath = '$OutputBase$/$ProjectPath$-Build/'
+		}
+		Executable('$ProjectName$-Exe-$PlatformInfo$-$ArchInfo$-$CompilerInfo$-$Config$') {
+			.Libraries = {
+				'$ProjectName$-Lib-$PlatformInfo$-$ArchInfo$-$CompilerInfo$-$Config$'
+			}
+			.LinkerOutput  = '$OutputBase$/$ProjectName$'
+		}
+		Alias('$ProjectName$-$PlatformInfo$-$ArchInfo$-$CompilerInfo$-$Config$') {
+			.Targets = '$ProjectName$-Exe-$PlatformInfo$-$ArchInfo$-$CompilerInfo$-$Config$'
+		}
+	}
+
+	ForEach(.Config in .Configs_Linux_Clang) {
+		Using(.Config)
+		.OutputBase + '/$PlatformInfo$-$ArchInfo$-$CompilerInfo$-$Config$'
+		.CompilerOptions + .CompilerOptionsC
+		ObjectList('$ProjectName$-Lib-$PlatformInfo$-$ArchInfo$-$CompilerInfo$-$Config$') {
+			.CompilerInputPath = '.'
+			.CompilerOutputPath = '$OutputBase$/$ProjectPath$-Build/'
+		}
+		Executable('$ProjectName$-Exe-$PlatformInfo$-$ArchInfo$-$CompilerInfo$-$Config$') {
+			.Libraries = {
+				'$ProjectName$-Lib-$PlatformInfo$-$ArchInfo$-$CompilerInfo$-$Config$',
+			}
+			.LinkerOutput  = '$OutputBase$/$ProjectName$'
+		}
+		Alias('$ProjectName$-$PlatformInfo$-$ArchInfo$-$CompilerInfo$-$Config$') {
+			.Targets = '$ProjectName$-Exe-$PlatformInfo$-$ArchInfo$-$CompilerInfo$-$Config$'
+		}
+	}
+
+}
